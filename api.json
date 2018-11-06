@@ -1,0 +1,19 @@
+{
+   "user": {
+      "id": null,
+      "name": null,
+      "password": null
+   },
+   "items": {
+      "id": null,
+      "label": null,
+      "image": null,
+      "description": null
+   },
+   "list": {
+      "id": null,
+      "name": null,
+      "user": null,
+      "items": null
+   }
+}
