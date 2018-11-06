@@ -46,7 +46,7 @@ app.put('/api', (req, res) => {
     dict.list.name = list_name;
     dict.list.user = user;
     dict.list.items = items;
-    fs.writeFile('api.json', json.stringify(dict, null, 4), (err) => {
+    fs.writeFile('api.json', JSON.stringify(dict, null, 4), (err) => {
 	    if (err) throw err;
     });
     res.status(200).send(data);
