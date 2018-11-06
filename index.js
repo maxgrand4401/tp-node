@@ -8,19 +8,22 @@ var port = 3000;
 var app = express();
 
 var content;
+
+var dict;
+
 fs.readFile('api.json', function read(err, data) {
     if (err) {
         throw err;
     }
     content = data;
-    dict = json.parse(content);
-}
+    dict = JSON.parse(content);
+});
 /* API */
-app.get('/api', function(req, res, next) {  
+app.get('/api', (req, res) => {
     res.status(200).send(dict);
 });
 
-app.put('/api', function(req, res) {  
+app.put('/api', (req, res) => {
     var user_id = req.body.user.id;
     var user_name = req.body.user.name;
     var password = req.body.user.passord;
@@ -45,7 +48,7 @@ app.put('/api', function(req, res) {
     dict.list.items = items;
     fs.writeFile('api.json', json.stringify(dict, null, 4), (err) => {
 	    if (err) throw err;
-    }
+    });
     res.status(200).send(data);
 });
 
