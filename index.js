@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 const fs = require('fs');
+const mongodbClient = require('mongo.connector');
 
 var hostname = 'localhost'; 
 var port = 3000; 
@@ -10,6 +11,14 @@ var app = express();
 var content;
 
 var dict;
+
+mongodbClient.init()
+    .then(client => {
+
+    })
+    .catch(err => {
+        throw  err;
+    });
 
 fs.readFile('api.json', function read(err, data) {
     if (err) {
